@@ -1,0 +1,31 @@
+<!-- @format -->
+<!-- Heading Row-->
+
+<div class="row gx-4 gx-lg-5 align-items-center my-5">
+    <div class="col-lg-7">
+      <img class="img-fluid rounded mb-4 mb-lg-0" 
+      [src]="getImage(firstEvent?.thumbnail)" alt="..." />
+    </div>
+    <div class="col-lg-5">
+      <h1 class="font-weight-light"> {{ firstEvent?.title }} </h1>
+      <p> {{ firstEvent?.description }} </p>
+      <a class="btn btn-primary" [routerLink]="['event/', firstEvent?.id, 'detail']">View more</a>
+    </div>
+  </div>
+  <!-- Content Row-->
+  <div class="row gx-4 gx-lg-5">
+    <div class="col-md-4 mb-5" *ngFor="let marvelEvent of events">
+      <div class="card h-100">
+        <div class="card-body">
+          <h2 class="card-title" [innerHTML]="marvelEvent.title"></h2>
+          <p class="card-text" [innerHTML]="marvelEvent.description"></p>
+          <img alt="Imagem" [src]="getImage(marvelEvent.thumbnail)" width="200">
+  
+        </div>
+        <div class="card-footer">
+          <a class="btn btn-primary btn-sm" [routerLink]="['event/', marvelEvent?.id, 'detail']">More Info</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
